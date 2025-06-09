@@ -18,7 +18,7 @@ const Hero = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const response = await fetch("http://localhost:3001/offerspage");
+        const response = await fetch("https://e-commerce-project-dashboard.onrender.com/offerspage");
         const data = await response.json();
         console.log(data);
         setOffers(data);

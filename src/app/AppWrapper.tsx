@@ -12,7 +12,7 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch('http://localhost:3001/check-auth', {
+        const res = await fetch('https://e-commerce-project-dashboard.onrender.com/check-auth', {
           credentials: 'include',
         });
         const data = await res.json();

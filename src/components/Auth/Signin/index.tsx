@@ -20,7 +20,7 @@ const Signin: React.FC = () => {
     e.preventDefault();
 console.log("Form submitted");
     try {
-      const response = await axios.post('http://localhost:3001/loginUser', {
+      const response = await axios.post('https://e-commerce-project-dashboard.onrender.com/loginUser', {
         email,
         password,
       });

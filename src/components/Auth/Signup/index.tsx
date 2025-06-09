@@ -20,7 +20,7 @@ const Signup = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/registerUser", {
+      const response = await axios.post("https://e-commerce-project-dashboard.onrender.com/registerUser", {
         name,
         email,
         password,

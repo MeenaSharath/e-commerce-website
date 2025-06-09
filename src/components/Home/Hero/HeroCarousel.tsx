@@ -17,7 +17,7 @@ const HeroCarousal = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const res = await fetch("http://localhost:3001/offerspage");
+        const res = await fetch("https://e-commerce-project-dashboard.onrender.com/offerspage");
         const data = await res.json();
         setOffers(data);
       } catch (err) {

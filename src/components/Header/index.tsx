@@ -52,7 +52,7 @@ const Header = () => {
     window.addEventListener("scroll", handleStickyMenu);
     const checkAuth = async () => {
       try {
-        const res = await fetch("http://localhost:3001/check-auth", {
+        const res = await fetch("https://e-commerce-project-dashboard.onrender.com/check-auth", {
           credentials: "include", 
         });
         const data = await res.json();
@@ -72,13 +72,13 @@ const Header = () => {
 
   const options = [
     { label: "Select Category", value: "0", plink: '' },
-    { label: "Furniture", value: "1", plink: 'http://localhost:3001/productpage' },
-    { label: "Cosmetics", value: "2", plink: 'http://localhost:3001/cosmeticpage' },
-    { label: "Fashion", value: "3", plink: 'http://localhost:3001/fashionpage' },
-    { label: "Electronics", value: "4", plink: 'http://localhost:3001/electronicspage' },
-    { label: "Grocery", value: "5", plink: 'http://localhost:3001/grocerypage' },
-    { label: "Entertainment", value: "6", plink: 'http://localhost:3001/entertainmentpage' },
-    { label: "HealthCare", value: "7", plink: 'http://localhost:3001/healthpage' },
+    { label: "Furniture", value: "1", plink: 'https://e-commerce-project-dashboard.onrender.com/productpage' },
+    { label: "Cosmetics", value: "2", plink: 'https://e-commerce-project-dashboard.onrender.com/cosmeticpage' },
+    { label: "Fashion", value: "3", plink: 'https://e-commerce-project-dashboard.onrender.com/fashionpage' },
+    { label: "Electronics", value: "4", plink: 'https://e-commerce-project-dashboard.onrender.com/electronicspage' },
+    { label: "Grocery", value: "5", plink: 'https://e-commerce-project-dashboard.onrender.com/grocerypage' },
+    { label: "Entertainment", value: "6", plink: 'https://e-commerce-project-dashboard.onrender.com/entertainmentpage' },
+    { label: "HealthCare", value: "7", plink: 'https://e-commerce-project-dashboard.onrender.com/healthpage' },
   ];
 
   return (
