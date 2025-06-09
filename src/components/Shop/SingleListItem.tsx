@@ -30,15 +30,15 @@ const SingleListItem = ({ item }: { item: Product }) => {
     );
   };
 
-  const handleItemToWishList = () => {
-    dispatch(
-      addItemToWishlist({
-        ...item,
-        status: "available",
-        quantity: 1,
-      })
-    );
-  };
+  // const handleItemToWishList = () => {
+  //   dispatch(
+  //     addItemToWishlist({
+  //       ...item,
+  //       status: "available",
+  //       quantity: 1,
+  //     })
+  //   );
+  // };
 
   return (
     <div className="group rounded-lg bg-white shadow-1">
@@ -85,7 +85,7 @@ const SingleListItem = ({ item }: { item: Product }) => {
               Add to cart
             </button>
 
-            <button
+            {/* <button
               onClick={() => handleItemToWishList()}
               aria-label="button for favorite select"
               className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-blue"
@@ -105,7 +105,7 @@ const SingleListItem = ({ item }: { item: Product }) => {
                   fill=""
                 />
               </svg>
-            </button>
+            </button> */}
           </div>
         </div>
 
