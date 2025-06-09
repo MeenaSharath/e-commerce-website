@@ -59,7 +59,7 @@ const Checkout = () => {
       .catch((err) =>
         console.error("User fetch error:", axios.isAxiosError(err) ? err.message : err)
       );
-  }, []);
+  }, [API_BASE]);
 
   const handleBillingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

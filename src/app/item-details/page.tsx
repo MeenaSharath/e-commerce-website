@@ -8,6 +8,7 @@ import { addItemToCart } from "@/redux/features/cart-slice";
 import { useState } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { addItemToWishlist, removeItemFromWishlist } from "@/redux/features/wishlist-slice";
+import Image from 'next/image';
 
 
 export default function ItemDetails() {
@@ -94,7 +95,7 @@ export default function ItemDetails() {
        
         {/* Left: Image */}
         <div className="flex-1">
-          <img
+          <Image
             src={image}
             alt={name}
             className="w-full h-full max-h-[400px] object-contain rounded-lg"

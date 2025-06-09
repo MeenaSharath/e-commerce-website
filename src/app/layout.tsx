@@ -6,6 +6,7 @@ import AppWrapper from './AppWrapper'; // includes auth logic
 import Head from "next/head";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Script from 'next/script';
 
 export const metadata = {
   title: 'KARTRA',
@@ -16,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <Head>
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="beforeInteractive" />
 </Head>
       <body>
         <ReduxProvider>

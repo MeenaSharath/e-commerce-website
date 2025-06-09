@@ -10,6 +10,7 @@ import { addItemToCart } from "@/redux/features/cart-slice";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { addItemToWishlist, removeItemFromWishlist } from "@/redux/features/wishlist-slice";
 import { toast } from "react-toastify";
+import Image from 'next/image';
 
 
 interface Product {
@@ -143,7 +144,7 @@ export default function SingleCatItemsPage() {
     <AiOutlineHeart className="text-gray-500" />
   )}
 </div>
-            <img
+            <Image
               src={item.image}
               alt={item.name}
               className="h-[200px] mt-1 w-full object-cover rounded-md"
