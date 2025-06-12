@@ -98,6 +98,8 @@ export default function OfferItemDetails() {
         {/* Left: Image */}
         <div className="flex-1">
           <Image
+          width={600}
+          height={400}
             src={image}
             alt={name}
             className="w-full h-full max-h-[400px] object-contain rounded-lg"

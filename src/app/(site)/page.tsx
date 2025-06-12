@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import Home from '@/components/Home';
+import ProtectedRoute from '@/components/ProtectedRoute';
+
 
 export default function HomePage() {
   const router = useRouter();
@@ -12,10 +14,12 @@ export default function HomePage() {
   useEffect(() => {
     const isLoggedIn = Cookies.get('isLoggedIn');
 
+    console.log('Cookie check: isLoggedIn =', isLoggedIn);
+
     if (!isLoggedIn) {
-      router.push('/signin');
+      router.replace('/signin'); // replace to avoid back button going to protected route
     } else {
-      setCheckingAuth(false); // Only render Home after auth verified
+      setCheckingAuth(false);
     }
   }, [router]);
 
@@ -23,5 +27,7 @@ export default function HomePage() {
     return <div className="text-center mt-20 text-lg">Checking authentication...</div>;
   }
 
-  return <Home />;
+  return( <ProtectedRoute>
+     <Home />
+  </ProtectedRoute>);
 }

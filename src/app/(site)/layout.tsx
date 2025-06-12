@@ -5,7 +5,6 @@ import "../css/euclid-circular-a-font.css";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
 import { ModalProvider } from "@/app/context/QuickViewModalContext";
 import { CartModalProvider } from "@/app/context/CartSidebarModalContext";
 import QuickViewModal from "@/components/Common/QuickViewModal";
@@ -38,5 +37,6 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         </PreviewSliderProvider>
       </ModalProvider>
     </CartModalProvider>
+   
   );
 }

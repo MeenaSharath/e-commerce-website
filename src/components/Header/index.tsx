@@ -223,7 +223,7 @@ const Header = () => {
                   </svg>
                 <div>
                     <p className="font-medium text-custom-sm text-dark">
-                      Sign In
+                      SignIn
                     </p>
                 </div>
               </Link>

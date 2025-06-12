@@ -17,31 +17,40 @@ const Signin: React.FC = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-console.log("Form submitted");
-    try {
-      const response = await axios.post('https://e-commerce-project-dashboard.onrender.com/loginUser', {
-        email,
-        password,
-      });
-      console.log("Login response:", response.data);
+  e.preventDefault();
+  console.log("Form submitted");
 
-      if (response.data === 'Success') {
-        dispatch(login()); // Adjust if you get actual user data
-        Cookies.set('isLoggedIn', 'true'); // ✅ Set login cookie
-        // router.push('/');
-        window.location.href = "/";
-      } else {
-        alert(response.data);
-      }
-    } catch (error: any) {
-  console.error('Login failed:', error.message);
-  if (error.response) {
-    console.error('Backend responded with:', error.response.data);
+  try {
+    let response;
+  try {
+    response = await axios.post('https://e-commerce-project-dashboard.onrender.com/loginUser', {
+      email,
+      password,
+    }, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+    console.log("After axios.post");
+  } catch (axiosError) {
+    console.error("Axios error inside try:", axiosError);
+    throw axiosError; // re-throw to your outer catch
   }
-  alert('An error occurred during login.');
-}
-  };
+    if (response.data.message === 'Success') {
+      dispatch(login());
+      Cookies.set('isLoggedIn', 'true');
+      window.location.href = "/";
+    } else {
+      alert(response.data.message || 'Login failed.');
+    }
+
+  } catch (error: any) {
+    console.error('Login failed:', error.message);
+    if (error.response && error.response.data?.message) {
+      alert(error.response.data.message);
+    } else {
+      alert('An error occurred during login.');
+    }
+  }
+};
 
   return (
     <>
