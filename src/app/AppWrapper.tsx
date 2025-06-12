@@ -1,4 +1,3 @@
-// app/AppWrapper.tsx
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -15,27 +14,34 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
         const res = await fetch('https://e-commerce-project-dashboard.onrender.com/check-auth', {
           credentials: 'include',
         });
+
+        if (!res.ok) {
+          throw new Error('Invalid response from server');
+        }
+
         const data = await res.json();
 
-        if (!data.isAuthenticated) {
-          router.push('/signin');
+        if (!data?.isAuthenticated) {
+          router.replace('/signin');
         } else {
           setLoading(false);
         }
       } catch (err) {
         console.error('Auth check failed:', err);
-        router.push('/signin');
+        router.replace('/signin');
       }
     };
 
     checkAuth();
   }, [router]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', padding: '2rem' }}>
+        <span>Loading...</span>
+      </div>
+    );
+  }
 
-  return (
-    <ReduxProvider>
-      {children}
-    </ReduxProvider>
-  );
+  return <ReduxProvider>{children}</ReduxProvider>;
 }
