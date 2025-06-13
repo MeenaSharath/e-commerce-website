@@ -50,7 +50,7 @@ const Checkout = () => {
   const total = subtotal + shippingFee;
   const totalInPaise = total * 100;
 
-  const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://e-commerce-project-dashboard.onrender.com";
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   useEffect(() => {
     axios

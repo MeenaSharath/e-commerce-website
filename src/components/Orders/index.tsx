@@ -46,7 +46,7 @@ const Orders: React.FC<OrdersListProps> = ({ user }) => {
 
     const fetchOrders = async () => {
       try {
-        const res = await fetch(`https://e-commerce-project-dashboard.onrender.com/getOrderDetails/${user.email}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/getOrderDetails/${user.email}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

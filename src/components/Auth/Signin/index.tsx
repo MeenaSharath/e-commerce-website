@@ -23,7 +23,7 @@ const Signin: React.FC = () => {
   try {
     let response;
   try {
-    response = await axios.post('https://e-commerce-project-dashboard.onrender.com/loginUser', {
+    response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/loginUser`, {
       email,
       password,
     }, {

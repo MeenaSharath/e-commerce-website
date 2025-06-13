@@ -10,7 +10,7 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch('https://e-commerce-project-dashboard.onrender.com/check-auth', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/check-auth`, {
           credentials: 'include',
         });
 

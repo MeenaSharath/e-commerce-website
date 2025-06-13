@@ -52,7 +52,7 @@ const Header = () => {
     window.addEventListener("scroll", handleStickyMenu);
     const checkAuth = async () => {
       try {
-        const res = await fetch("https://e-commerce-project-dashboard.onrender.com/check-auth", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/check-auth`, {
           credentials: "include", 
         });
         const data = await res.json();
@@ -72,13 +72,13 @@ const Header = () => {
 
   const options = [
     { label: "Select Category", value: "0", plink: '' },
-    { label: "Furniture", value: "1", plink: 'https://e-commerce-project-dashboard.onrender.com/productpage' },
-    { label: "Cosmetics", value: "2", plink: 'https://e-commerce-project-dashboard.onrender.com/cosmeticpage' },
-    { label: "Fashion", value: "3", plink: 'https://e-commerce-project-dashboard.onrender.com/fashionpage' },
-    { label: "Electronics", value: "4", plink: 'https://e-commerce-project-dashboard.onrender.com/electronicspage' },
-    { label: "Grocery", value: "5", plink: 'https://e-commerce-project-dashboard.onrender.com/grocerypage' },
-    { label: "Entertainment", value: "6", plink: 'https://e-commerce-project-dashboard.onrender.com/entertainmentpage' },
-    { label: "HealthCare", value: "7", plink: 'https://e-commerce-project-dashboard.onrender.com/healthpage' },
+    { label: "Furniture", value: "1", plink: `${process.env.NEXT_PUBLIC_API_BASE_URL}/productpage` },
+    { label: "Cosmetics", value: "2", plink: `${process.env.NEXT_PUBLIC_API_BASE_URL}/cosmeticpage` },
+    { label: "Fashion", value: "3", plink: `${process.env.NEXT_PUBLIC_API_BASE_URL}/fashionpage` },
+    { label: "Electronics", value: "4", plink: `${process.env.NEXT_PUBLIC_API_BASE_URL}/electronicspage` },
+    { label: "Grocery", value: "5", plink: `${process.env.NEXT_PUBLIC_API_BASE_URL}/grocerypage` },
+    { label: "Entertainment", value: "6", plink: `${process.env.NEXT_PUBLIC_API_BASE_URL}/entertainmentpage` },
+    { label: "HealthCare", value: "7", plink: `${process.env.NEXT_PUBLIC_API_BASE_URL}/healthpage` },
   ];
 
   return (

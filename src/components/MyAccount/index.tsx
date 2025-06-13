@@ -56,7 +56,7 @@ const [newPassword, setNewPassword] = useState('');
 
   try {
     const response = await axios.put(
-      "https://e-commerce-project-dashboard.onrender.com/updateUser",
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/updateUser`,
       {
         name: user.name,
         email: user.email,
@@ -83,7 +83,7 @@ const [newPassword, setNewPassword] = useState('');
 };
 
   useEffect(() => {
-   axios.get<{ user: UserType }>('https://e-commerce-project-dashboard.onrender.com/getCurrentUser', {
+   axios.get<{ user: UserType }>(`${process.env.NEXT_PUBLIC_API_BASE_URL}/getCurrentUser`, {
   withCredentials: true
 })
 .then(res => {
@@ -108,7 +108,7 @@ useEffect(() => {
       try {
         // Use query param email to get orders
         const res = await axios.get(
-  `https://e-commerce-project-dashboard.onrender.com/getOrderDetails/${encodeURIComponent(user.email)}`
+  `${process.env.NEXT_PUBLIC_API_BASE_URL}/getOrderDetails/${encodeURIComponent(user.email)}`
 );
 
         const orders = res.data;

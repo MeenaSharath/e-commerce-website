@@ -2,50 +2,46 @@ const data = [
   {
     title: "Furniture",
     id: 1,
-    plink:'https://e-commerce-project-dashboard.onrender.com/productpage',
+    plink:`${process.env.NEXT_PUBLIC_API_BASE_URL}/productpage`,
     img: "/images/categories/furniture.jfif",
   },
   {
     title: "Cosmetic",
     id: 2,
-    plink:'https://e-commerce-project-dashboard.onrender.com/cosmeticpage',
+    plink:`${process.env.NEXT_PUBLIC_API_BASE_URL}/cosmeticpage`,
     img: "/images/categories/cosmetics.jfif",
   },
   {
     title: "Fashion",
     id: 3,
-    plink:'https://e-commerce-project-dashboard.onrender.com/fashionpage',
+    plink:`${process.env.NEXT_PUBLIC_API_BASE_URL}/fashionpage`,
     img: "/images/categories/fashion.jfif",
   },
   {
     title: "Electronics",
     id: 4,
-    plink:'https://e-commerce-project-dashboard.onrender.com/electronicspage',
+    plink:`${process.env.NEXT_PUBLIC_API_BASE_URL}/electronicspage`,
     img: "/images/categories/electronics.jfif",
   },
   {
     title: "Grocery",
     id: 5,
-    plink:'https://e-commerce-project-dashboard.onrender.com/grocerypage',
+    plink:`${process.env.NEXT_PUBLIC_API_BASE_URL}/grocerypage`,
     img: "/images/categories/grocery.jfif",
   },
   {
     title: "Entertainment",
     id: 6,
-    plink:'https://e-commerce-project-dashboard.onrender.com/entertainmentpage',
+    plink:`${process.env.NEXT_PUBLIC_API_BASE_URL}/entertainmentpage`,
     img: "/images/categories/entertainment.jfif",
   },
   {
     title: "HealthCare",
     id: 7,
-    plink:'https://e-commerce-project-dashboard.onrender.com/healthpage',
+    plink:`${process.env.NEXT_PUBLIC_API_BASE_URL}/healthpage`,
     img: "/images/categories/health.jfif",
   },
-  // {
-  //   title: "Televisions",
-  //   id: 8,
-  //   img: "/images/categories/categories-04.png",
-  // },
+ 
 ];
 
 export default data;

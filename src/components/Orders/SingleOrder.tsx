@@ -50,7 +50,7 @@ const SingleOrder: React.FC<Props> = ({ orderItem, smallView, userId }) => {
 
   const handleReturnSubmit = async (finalReason: string) => {
     try {
-      const res = await fetch(`https://e-commerce-project-dashboard.onrender.com/api/return/${orderItem._id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/return/${orderItem._id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

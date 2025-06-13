@@ -20,7 +20,7 @@ const Signup = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://e-commerce-project-dashboard.onrender.com/registerUser", {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/registerUser`, {
         name,
         email,
         password,
