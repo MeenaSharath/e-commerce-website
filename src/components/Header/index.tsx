@@ -14,18 +14,16 @@ import Cookies from 'js-cookie';
 import { usePathname } from 'next/navigation';
 
 const Header = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [navigationOpen, setNavigationOpen] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
   const { openCartModal } = useCartModalContext();
   const dispatch = useDispatch();
   const router = useRouter();
-  // const isAuthenticated = useAppSelector((state) => state.authReducer.isAuthenticated);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const pathname = usePathname();
 
   const product = useAppSelector((state) => state.cartReducer.items);
   const totalPrice = useSelector(selectTotalPrice);
+  const accountLink = `${process.env.NEXT_PUBLIC_API_BASE_URL}/my-account`;
 
   const handleOpenCartModal = () => {
     openCartModal();
@@ -280,8 +278,9 @@ const Header = () => {
                   </div>
                 </button>
 )}
+
    {isAuthenticated && !hideSignOut && !hideSignin &&(            
-  <Link href="http://localhost:3000/my-account" className="flex items-center gap-2 hover:text-primary">
+  <Link href={accountLink} className="flex items-center gap-2 hover:text-primary">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="w-8 h-8 text-blue"
