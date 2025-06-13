@@ -62,20 +62,15 @@ export default function OfferItemDetails() {
   const handleAddToCart = () => {
      dispatch(
       addItemToCart({
-        id: _id, 
-        title: name,
-        // imgs: { previews: [image] },
-       price,
-        discountedPrice: price,
-        // description: des,
-        quantity: 1,
-        imgs: {
+         id: _id,
+    title: name,
+    price,
+    discountedPrice: price,
+    quantity: 1,
+    imgs: {
       previews: [image],
-      thumbnails: [], 
+      thumbnails: [],
     },
-        // category: "custom", // fallback or inferred value
-        // status: "available",
-        // reviews: 0,
       })
     );
     setMessage("Item added to cart!");
