@@ -23,7 +23,6 @@ const Header = () => {
 
   const product = useAppSelector((state) => state.cartReducer.items);
   const totalPrice = useSelector(selectTotalPrice);
-  const accountLink = `${process.env.NEXT_PUBLIC_API_BASE_URL}/my-account`;
 
   const handleOpenCartModal = () => {
     openCartModal();
