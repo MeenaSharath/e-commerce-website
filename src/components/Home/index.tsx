@@ -6,11 +6,16 @@ import BestSeller from "./BestSeller";
 import CounDown from "./Countdown";
 import Testimonials from "./Testimonials";
 import Newsletter from "../Common/Newsletter";
-import ProtectedRoute from '@/components/ProtectedRoute';
+import { useAuthRedirect } from '@/hooks/useAuthRedirect';
 
 const Home = () => {
+  const checkingAuth = useAuthRedirect();
+
+  if (checkingAuth) {
+    return <div className="text-center mt-20 text-lg">Checking authentication...</div>;
+  }
   return (
-    <ProtectedRoute>
+    
     <main>
       <Hero />
       <Categories />
@@ -21,7 +26,7 @@ const Home = () => {
       <Testimonials />
       <Newsletter />
     </main>
-    </ProtectedRoute>
+    
   );
 };
 

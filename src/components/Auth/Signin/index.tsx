@@ -21,13 +21,16 @@ const Signin: React.FC = () => {
   console.log("Form submitted");
 
   try {
+    console.log('API Base URL:', process.env.NEXT_PUBLIC_API_BASE_URL);
+console.log('Full URL:', `${process.env.NEXT_PUBLIC_API_BASE_URL}/loginUser`);
     let response;
   try {
     response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/loginUser`, {
       email,
       password,
     }, {
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
     });
     console.log("After axios.post");
   } catch (axiosError) {

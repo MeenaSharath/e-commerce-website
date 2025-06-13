@@ -17,7 +17,7 @@ const HeroCarousal = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const res = await fetch("https://e-commerce-project-dashboard.onrender.com/offerspage");
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/offerspage`);
         const data = await res.json();
         setOffers(data);
       } catch (err) {

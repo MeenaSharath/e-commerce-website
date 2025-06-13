@@ -145,6 +145,8 @@ export default function SingleCatItemsPage() {
   )}
 </div>
             <Image
+            width={600}
+            height={400}
               src={item.image}
               alt={item.name}
               className="h-[200px] mt-1 w-full object-cover rounded-md"
