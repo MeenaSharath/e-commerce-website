@@ -21,7 +21,7 @@ interface Product {
   rating?: number;
 }
 
-const ITEMS_PER_PAGE = 8;
+const ITEMS_PER_PAGE = 9;
 
 export default function SingleCatItemsPage() {
   const searchParams = useSearchParams();
@@ -103,99 +103,94 @@ export default function SingleCatItemsPage() {
     return <p className="p-4 text-center text-red-500">Error: {error}</p>;
 
   return (
-    <div className="min-h-screen bg-[#F5F5F7] p-4">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-3xl font-bold text-center text-gray-800 w-full relative">
-          {title} Items
-          <span className="block w-20 h-1 bg-blue-500 mt-2 mx-auto rounded"></span>
-        </h2>
-        <div className="absolute top-6 right-8">
-          <SearchIcon className="text-gray-700 cursor-pointer hover:text-black" />
-          <input
-            type="text"
-            placeholder="Search by Name"
-            className="p-2 border border-gray-300 rounded-md shadow-md bg-white w-60 mb-1"
-            value={searchTerm}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-              setCurrentPage(1); // Reset to first page on search
-            }}
-            autoFocus
-          />
-        </div>
-      </div>
+    <div className="min-h-screen bg-[#F5F5F7] px-6 sm:px-10 lg:px-20 py-6">
+  {/* Header */}
+  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+    <h2 className="text-3xl font-bold text-gray-800 mb-4 md:mb-0">
+      {title} Items
+      <span className="block w-20 h-1 bg-blue-500 mt-2 rounded"></span>
+    </h2>
+    
+    <div className="relative w-full md:w-80">
+      <SearchIcon className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-500" />
+      <input
+        type="text"
+        placeholder="Search by Name"
+        className="pl-10 pr-4 py-2 border border-gray-300 rounded-md shadow-sm w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+        value={searchTerm}
+        onChange={(e) => {
+          setSearchTerm(e.target.value);
+          setCurrentPage(1);
+        }}
+      />
+    </div>
+  </div>
 
-      {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-fr">
-        {paginatedProducts.map((item, index) => (
-          <div
-            key={index}
-            className="relative bg-white border border-gray-300 rounded-lg shadow p-4 flex flex-col justify-between items-center h-full"
-          >
-            <div
-  className="absolute top-3 right-3 text-xl cursor-pointer"
-  onClick={() => toggleWishlist(item)}
-  title={wishlist.includes(item._id) ? "Remove from Wishlist" : "Add to Wishlist"}
->
-  {wishlist.includes(item._id) ? (
-    <AiFillHeart className="text-red" />
-  ) : (
-    <AiOutlineHeart className="text-gray-500" />
-  )}
-</div>
-            <Image
-            width={600}
-            height={400}
-              src={item.image}
-              alt={item.name}
-              className="h-[200px] mt-1 w-full object-cover rounded-md"
-            />
-            <p
-              className="text-lg font-semibold text-blue-600 hover:underline mt-1 text-center cursor-pointer"
-              onClick={() =>
-                router.push(
-                  `/item-details?name=${encodeURIComponent(item.name)}&price=${item.price}&image=${encodeURIComponent(item.image)}&_id=${item._id}&rating=${item.rating || 0}`
-                )
-              }
-            >
-              {item.name}
-            </p>
-            <Rating
-              value={item.rating || 0}
-              readOnly
-              style={{ marginTop: "0.5rem" }}
-            />
-            <p className="text-xl font-bold text-gray-900 mt-1">
-              ₹{item.price}
-            </p>
-           <button
-  onClick={() => {
-    dispatch(
-      addItemToCart({
-        id: item._id,
-        title: item.name,
-        price: item.price,
-        discountedPrice: item.price, // Update if you apply discounts
-        quantity: 1,
-        imgs: {
-          previews: [item.image],
-          thumbnails: [],
-        },
-      })
-    );
-    toast.success("Item added to cart!");
-  }}
-  className="text-l inline-flex font-semibold text-white bg-dark py-[8px] px-9 rounded-md hover:bg-teal-dark mt-3"
->
-  Add To Cart
-</button>
-          </div>
-        ))}
-        {filteredProducts.length === 0 && (
-          <p className="text-center w-full text-gray-500">No results found.</p>
-        )}
+  {/* Product Grid */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {paginatedProducts.map((item, index) => (
+      <div key={index} className="bg-white border rounded-lg shadow p-4 relative text-center">
+        <div
+          className="absolute top-3 right-3 text-xl cursor-pointer"
+          onClick={() => toggleWishlist(item)}
+          title={wishlist.includes(item._id) ? "Remove from Wishlist" : "Add to Wishlist"}
+        >
+          {wishlist.includes(item._id) ? (
+            <AiFillHeart className="text-red" />
+          ) : (
+            <AiOutlineHeart className="text-gray-500" />
+          )}
+        </div>
+
+        <Image
+          width={600}
+          height={400}
+          src={item.image}
+          alt={item.name}
+          className="h-[200px] w-full object-cover rounded-md"
+        />
+
+        <p
+          className="text-lg font-semibold text-blue-600 hover:underline mt-2 text-center cursor-pointer"
+          onClick={() =>
+            router.push(
+              `/item-details?name=${encodeURIComponent(item.name)}&price=${item.price}&image=${encodeURIComponent(item.image)}&_id=${item._id}&rating=${item.rating || 0}`
+            )
+          }
+        >
+          {item.name}
+        </p>
+
+        <Rating value={item.rating || 0} readOnly className="mt-1" />
+        <p className="text-xl font-bold text-gray-900 mt-1">₹{item.price}</p>
+
+        <button
+          onClick={() => {
+            dispatch(
+              addItemToCart({
+                id: item._id,
+                title: item.name,
+                price: item.price,
+                discountedPrice: item.price,
+                quantity: 1,
+                imgs: {
+                  previews: [item.image],
+                  thumbnails: [],
+                },
+              })
+            );
+            toast.success("Item added to cart!");
+          }}
+          className="mt-3 bg-dark text-white font-medium py-2 px-5 rounded-md"
+        >
+          Add To Cart
+        </button>
       </div>
+    ))}
+    {filteredProducts.length === 0 && (
+      <p className="text-center w-full text-gray-500">No results found.</p>
+    )}
+  </div>
 
       {/* Pagination */}
       {totalPages > 1 && (
