@@ -1,10 +1,8 @@
 'use client';
 import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
-import { RootState, useAppSelector } from '@/redux/store';
+import { useRouter } from 'next/navigation'; 
+import { useAppSelector } from '@/redux/store';
 import Home from '@/components/Home';
-
 
 export default function HomePage() {
   const router = useRouter();
