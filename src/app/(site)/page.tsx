@@ -1,14 +1,22 @@
 'use client';
-
-import { useAuthRedirect } from '@/hooks/useAuthRedirect';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { RootState, useAppSelector } from '@/redux/store';
 import Home from '@/components/Home';
 
-export default function HomePage() {
-  const checkingAuth = useAuthRedirect();
 
-  if (checkingAuth) {
-    return <div className="text-center mt-20 text-lg">Checking authentication...</div>;
-  }
+export default function HomePage() {
+  const router = useRouter();
+  const isAuthenticated = useAppSelector(state => state.authReducer.isAuthenticated);
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      router.replace('/signin');
+    }
+  }, [isAuthenticated]);
+
+  if (!isAuthenticated) return null;
 
   return <Home />;
 }
