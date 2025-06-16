@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const CounDown = () => {
@@ -7,6 +8,7 @@ const CounDown = () => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const router = useRouter();
 
   const deadline = "December, 31, 2024";
 
@@ -103,12 +105,16 @@ const CounDown = () => {
             </div>
             {/* <!-- Countdown timer ends --> */}
 
-            <a
-              href="#"
+            <p
               className="inline-flex font-medium text-custom-sm text-white bg-blue py-3 px-9.5 rounded-md ease-out duration-200 hover:bg-blue-dark mt-7.5"
+              onClick={() =>
+            router.push(
+              `/item-details?name=Havit H206d Headphone&price=5999&image=/images/countdown/countdown-01.png&_id=1&rating=5`
+            )
+          }
             >
               Check it Out!
-            </a>
+            </p>
           </div>
 
           {/* <!-- bg shapes --> */}

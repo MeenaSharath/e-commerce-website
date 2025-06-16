@@ -3,8 +3,8 @@ const shopData: Product[] = [
   {
     title: "Havit HV-G69 USB Gamepad",
     reviews: 15,
-    price: 59.0,
-    discountedPrice: 29.0,
+    price: 5999.0,
+    discountedPrice: 2999.0,
     id: 1,
     imgs: {
       thumbnails: [
@@ -20,8 +20,8 @@ const shopData: Product[] = [
   {
     title: "iPhone 14 Plus , 6/128GB",
     reviews: 5,
-    price: 899.0,
-    discountedPrice: 99.0,
+    price: 89999.0,
+    discountedPrice: 69999.0,
     id: 2,
     imgs: {
       thumbnails: [
@@ -37,8 +37,8 @@ const shopData: Product[] = [
   {
     title: "Apple iMac M1 24-inch 2021",
     reviews: 5,
-    price: 59.0,
-    discountedPrice: 29.0,
+    price: 99999.0,
+    discountedPrice: 79999.0,
     id: 3,
     imgs: {
       thumbnails: [
@@ -54,8 +54,8 @@ const shopData: Product[] = [
   {
     title: "MacBook Air M1 chip, 8/256GB",
     reviews: 6,
-    price: 59.0,
-    discountedPrice: 29.0,
+    price: 5999.0,
+    discountedPrice: 3999.0,
     id: 4,
     imgs: {
       thumbnails: [
@@ -71,8 +71,8 @@ const shopData: Product[] = [
   {
     title: "Apple Watch Ultra",
     reviews: 3,
-    price: 99.0,
-    discountedPrice: 29.0,
+    price: 39999.0,
+    discountedPrice: 29999.0,
     id: 5,
     imgs: {
       thumbnails: [
@@ -88,8 +88,8 @@ const shopData: Product[] = [
   {
     title: "Logitech MX Master 3 Mouse",
     reviews: 15,
-    price: 59.0,
-    discountedPrice: 29.0,
+    price: 599.0,
+    discountedPrice: 299.0,
     id: 6,
     imgs: {
       thumbnails: [
@@ -105,8 +105,8 @@ const shopData: Product[] = [
   {
     title: "Apple iPad Air 5th Gen - 64GB",
     reviews: 15,
-    price: 59.0,
-    discountedPrice: 29.0,
+    price: 6999.0,
+    discountedPrice: 4999.0,
     id: 7,
     imgs: {
       thumbnails: [
@@ -122,8 +122,8 @@ const shopData: Product[] = [
   {
     title: "Asus RT Dual Band Router",
     reviews: 15,
-    price: 59.0,
-    discountedPrice: 29.0,
+    price: 999.0,
+    discountedPrice: 799.0,
     id: 8,
     imgs: {
       thumbnails: [
