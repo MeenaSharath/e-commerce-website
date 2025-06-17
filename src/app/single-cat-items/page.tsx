@@ -21,7 +21,7 @@ interface Product {
   rating?: number;
 }
 
-const ITEMS_PER_PAGE = 9;
+const ITEMS_PER_PAGE = 6;
 
 export default function SingleCatItemsPage() {
   const searchParams = useSearchParams();

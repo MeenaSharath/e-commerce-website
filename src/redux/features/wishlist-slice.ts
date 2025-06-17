@@ -33,24 +33,6 @@ export const wishlist = createSlice({
         state.items.push(action.payload);
       }
     
-    // addItemToWishlist: (state, action: PayloadAction<WishListItem>) => {
-    //   const { id, title, price, quantity, imgs} =
-    //     action.payload;
-    //   const existingItem = state.items.find((item) => item.id === id);
-
-    //   if (existingItem) {
-    //     existingItem.quantity += quantity;
-    //   } else {
-    //     state.items.push({
-    //       id,
-    //       title,
-    //       price,
-    //       quantity,
-    //       imgs,
-    //       // discountedPrice,
-    //       // status,
-    //     });
-    //   }
     },
     removeItemFromWishlist: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter((item) => item._id !== action.payload);
