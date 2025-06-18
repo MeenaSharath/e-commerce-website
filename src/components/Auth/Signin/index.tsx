@@ -1,18 +1,15 @@
 'use client';
 
-import Breadcrumb from "@/components/Common/Breadcrumb";
 import axios from "axios";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { useState, FormEvent } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "@/redux/features/authSlice";
-import Cookies from 'js-cookie'; // ✅ Added import
+import Cookies from 'js-cookie'; 
 
 const Signin: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const router = useRouter();
 
   const dispatch = useDispatch();
 
@@ -21,8 +18,6 @@ const Signin: React.FC = () => {
   console.log("Form submitted");
 
   try {
-    console.log('API Base URL:', process.env.NEXT_PUBLIC_API_BASE_URL);
-console.log('Full URL:', `${process.env.NEXT_PUBLIC_API_BASE_URL}/loginUser`);
     let response;
   try {
     response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/loginUser`, {
@@ -35,7 +30,7 @@ console.log('Full URL:', `${process.env.NEXT_PUBLIC_API_BASE_URL}/loginUser`);
     console.log("After axios.post");
   } catch (axiosError) {
     console.error("Axios error inside try:", axiosError);
-    throw axiosError; // re-throw to your outer catch
+    throw axiosError; 
   }
     if (response.data.message === 'Success') {
       dispatch(login());
@@ -57,7 +52,6 @@ console.log('Full URL:', `${process.env.NEXT_PUBLIC_API_BASE_URL}/loginUser`);
 
   return (
     <>
-      {/* <Breadcrumb title={"Signin"} pages={["Signin"]} /> */}
       <section
         className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
         style={{ backgroundImage: "url('/images/signin-bg.jpg')" }}

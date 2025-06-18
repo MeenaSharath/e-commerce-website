@@ -1,6 +1,4 @@
 "use client";
-
-import Breadcrumb from "@/components/Common/Breadcrumb";
 import Link from "next/link";
 import React, { useState } from "react";
 import axios from "axios";
@@ -36,7 +34,6 @@ const Signup = () => {
 
   return (
     <>
-      {/* <Breadcrumb title={"Signup"} pages={["Signup"]} /> */}
       <section
         className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
         style={{

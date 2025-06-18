@@ -43,9 +43,8 @@ const CustomSelect = ({ options }) => {
       >
         <span>{selectedOption.label}</span>
         <svg
-          className={`w-4 h-4 ml-2 transform transition-transform duration-200 ${
-            isOpen ? "rotate-180" : ""
-          }`}
+          className={`w-4 h-4 ml-2 transform transition-transform duration-200 ${isOpen ? "rotate-180" : ""
+            }`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -58,10 +57,10 @@ const CustomSelect = ({ options }) => {
         <div className="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
           {options.map((option, index) => (
             <div
-        key={index}
-        onClick={() => handleOptionClick(option)}
-        className='px-4 py-2 cursor-pointer hover:bg-gray'
-      >
+              key={index}
+              onClick={() => handleOptionClick(option)}
+              className='px-4 py-2 cursor-pointer hover:bg-gray'
+            >
 
               {option.label}
             </div>

@@ -11,7 +11,7 @@ type Props = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 const Billing: React.FC<Props> = ({ formData, onChange }) => {
-  
+
   return (
     <div>
       <h2 className="font-medium text-dark text-xl sm:text-2xl mb-5.5">
@@ -20,20 +20,20 @@ const Billing: React.FC<Props> = ({ formData, onChange }) => {
 
       <div className="bg-white shadow-1 rounded-[10px] p-4 sm:p-8.5">
         {/* <div className="flex flex-col lg:flex-row gap-5 sm:gap-8 mb-5"> */}
-          <div className="mb-5">
-            <label htmlFor="firstName" className="block mb-2.5">Name <span className="text-red">*</span>
-            </label>
+        <div className="mb-5">
+          <label htmlFor="firstName" className="block mb-2.5">Name <span className="text-red">*</span>
+          </label>
 
-            <input
-              type="text"
-              id="billingName"
-          name="name"
-          value={formData.name}
-          onChange={onChange}
-              placeholder="Jhon"
-              className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-            />
-          </div>
+          <input
+            type="text"
+            id="billingName"
+            name="name"
+            value={formData.name}
+            onChange={onChange}
+            placeholder="Jhon"
+            className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
+          />
+        </div>
 
         <div className="mb-5">
           <label htmlFor="countryName" className="block mb-2.5">
@@ -79,9 +79,9 @@ const Billing: React.FC<Props> = ({ formData, onChange }) => {
 
           <input
             type="text"
-  name="address"
-  value={formData.address}
-  onChange={onChange}
+            name="address"
+            value={formData.address}
+            onChange={onChange}
             id="billingAddress"
             placeholder="House name and street name"
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
@@ -95,9 +95,9 @@ const Billing: React.FC<Props> = ({ formData, onChange }) => {
 
           <input
             type="text"
-  name="city"
-  value={formData.city}
-  onChange={onChange}
+            name="city"
+            value={formData.city}
+            onChange={onChange}
             id="billingCity"
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
@@ -110,9 +110,9 @@ const Billing: React.FC<Props> = ({ formData, onChange }) => {
 
           <input
             type="text"
-  name="zip"
-  value={formData.zip}
-  onChange={onChange}
+            name="zip"
+            value={formData.zip}
+            onChange={onChange}
             id="billingZip"
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
@@ -126,8 +126,8 @@ const Billing: React.FC<Props> = ({ formData, onChange }) => {
           <input
             type="text"
             name="phone"
-          value={formData.phone}
-          onChange={onChange}
+            value={formData.phone}
+            onChange={onChange}
             id="billingPhone"
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
@@ -141,14 +141,14 @@ const Billing: React.FC<Props> = ({ formData, onChange }) => {
           <input
             type="email"
             name="email"
-          value={formData.email}
-          onChange={onChange}
+            value={formData.email}
+            onChange={onChange}
             id="billingEmail"
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
         </div>
       </div>
-      
+
     </div>
   );
 };

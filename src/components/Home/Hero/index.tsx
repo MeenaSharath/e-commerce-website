@@ -18,7 +18,7 @@ const Hero = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/offerspage`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/categories/offers`);
         const data = await response.json();
         console.log(data);
         setOffers(data);
