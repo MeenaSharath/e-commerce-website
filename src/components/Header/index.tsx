@@ -12,6 +12,7 @@ import { login, logout } from "@/redux/features/authSlice"
 import { useRouter } from "next/navigation";
 import Cookies from 'js-cookie';
 import { usePathname } from 'next/navigation';
+import axios from "axios";
 
 const Header = () => {
   const [stickyMenu, setStickyMenu] = useState(false);
@@ -33,6 +34,15 @@ const Header = () => {
     path: '/',
     sameSite: 'Lax',
   });
+
+  const handleLogout = async () => {
+  await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/logout`, {
+    withCredentials: true,
+  });
+  dispatch(logout());
+  router.push("/signin");
+
+};
 
 
 
@@ -162,10 +172,7 @@ const Header = () => {
               <div className="flex items-center gap-5">
                 {isAuthenticated && !hideSignOut && !hideSignin && (
                   <button
-                    onClick={() => {
-                      dispatch(logout());
-                      router.push("/signin");
-                    }}
+                    onClick={handleLogout}
                     className="flex items-center gap-2.5"
                   >
                     <svg
