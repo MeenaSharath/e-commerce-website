@@ -31,7 +31,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="overflow-hidden pb-10 lg:pb-12.5 xl:pb-15 pt-60 sm:pt-60 lg:pt-60 xl:pt-60 mt-20 bg-[#E5EAF4]">
+    <section className="overflow-hidden pb-10 lg:pb-12.5 xl:pb-15 pt-35 sm:pt-35 lg:pt-35 xl:pt-35 mt-20 bg-[#E5EAF4]">
       <div className="max-w-[1170px] w-full mx-auto px-4">
   <div className="flex flex-nowrap items-stretch gap-5">
     {/* Left Side: Carousel */}
