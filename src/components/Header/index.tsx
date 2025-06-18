@@ -63,7 +63,6 @@ const Header = () => {
     checkAuth();
   }, []);
 
-  console.log("Header Rendered, isAuthenticated:", isAuthenticated);
   const hideSignOut = pathname === "/signin";
   const hideSignin = pathname === "/signup";
 
@@ -101,7 +100,7 @@ const Header = () => {
                 height={24}
               />
             </Link>
-            {isAuthenticated && !hideSignOut && !hideSignin && (
+            {/* {isAuthenticated && !hideSignOut && !hideSignin && ( */}
               <div className="max-w-[475px] w-full">
                 <form>
                   <div className="flex items-center">
@@ -109,7 +108,7 @@ const Header = () => {
                   </div>
                 </form>
               </div>
-            )}
+            {/* )} */}
           </div>
 
 
@@ -156,9 +155,9 @@ const Header = () => {
 
 
             {/* <!-- divider --> */}
-            {isAuthenticated && !hideSignOut && !hideSignin && (
+            {/* {isAuthenticated && !hideSignOut && !hideSignin && ( */}
               <span className="xl:block w-px h-7.5 bg-gray-4"></span>
-            )}
+            {/* )} */}
             <div className="flex w-full lg:w-auto justify-between items-center gap-5">
               <div className="flex items-center gap-5">
                 {isAuthenticated && !hideSignOut && !hideSignin && (
@@ -225,7 +224,7 @@ const Header = () => {
                     </div>
                   </Link>
                 )}
-                {isAuthenticated && !hideSignOut && !hideSignin && (
+                {/* {isAuthenticated && !hideSignOut && !hideSignin && ( */}
                   <button
                     onClick={handleOpenCartModal}
                     className="flex items-center gap-2.5"
@@ -276,9 +275,9 @@ const Header = () => {
                       </p>
                     </div>
                   </button>
-                )}
+                {/* )} */}
 
-                {isAuthenticated && !hideSignOut && !hideSignin && (
+                {/* {isAuthenticated && !hideSignOut && !hideSignin && ( */}
                   <Link href="/my-account" className="flex items-center gap-2 hover:text-primary">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -292,7 +291,7 @@ const Header = () => {
                     </svg>
                     <span className="font-medium text-custom-sm text-dark">Account</span>
                   </Link>
-                )}
+                {/* )} */}
 
               </div>
             </div>
@@ -301,7 +300,7 @@ const Header = () => {
         {/* <!-- header top end --> */}
       </div>
       {/* // <!--=== Nav Right Start ===--> */}
-      {isAuthenticated && !hideSignOut && !hideSignin && (
+      {/* {isAuthenticated && !hideSignOut && !hideSignin && ( */}
         <div className="border-t border-gray-3">
           <div className="max-w-[1170px] mx-auto px-4 sm:px-7.5 xl:px-0">
             <ul className="flex items-center gap-5.5">
@@ -329,9 +328,7 @@ const Header = () => {
             </ul>
           </div>
         </div>
-
-
-      )}
+ {/* )} */}
       {/* <!--=== Nav Right End ===--> */}
 
     </header>
