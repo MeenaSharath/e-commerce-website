@@ -1,17 +1,42 @@
 'use client';
 import { selectTotalPrice } from "@/redux/features/cart-slice";
 import { useAppSelector } from "@/redux/store";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from 'next/navigation';
+import axios from "axios";
+type UserType = {
+  name: string;
+  email: string;
+  _id?: string;
+};
 
 const OrderSummary = () => {
+  const [user, setUser] = useState<UserType | null>(null);
   const cartItems = useAppSelector((state) => state.cartReducer.items);
   const totalPrice = useSelector(selectTotalPrice);
   const router = useRouter();
 
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+  useEffect(() => {
+    axios
+      .get<{ user: UserType }>(`${API_BASE}/getCurrentUser`, { withCredentials: true })
+      .then((res) => setUser(res.data.user))
+      .catch((err) =>
+        console.error("User fetch error:", axios.isAxiosError(err) ? err.message : err)
+      );
+  }, [API_BASE]);
+
+
   const handleCheckout = () => {
+    if (!user || !user._id) {
+      alert("You must be logged in to place an order.");
+      return;
+    }
+    else{
     router.push('/checkout');
+    }
   };
 
   return (
