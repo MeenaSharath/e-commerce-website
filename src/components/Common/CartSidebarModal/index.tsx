@@ -140,6 +140,11 @@ const CartSidebarModal = () => {
               >
                 Checkout
               </button>
+
+              {warning && (
+  <p className="text-red text-center mt-2">{warning}</p>
+)}
+
             </div>
           </div>
         </div>
